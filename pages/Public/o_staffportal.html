@@ -19,6 +19,33 @@
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 
   <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+  <script>
+  function showUser(str) {
+      if (str == "") {
+          document.getElementById("txtHint").innerHTML = "";
+          return;
+      } else { 
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+          };
+          xmlhttp.open("GET","client_lookup.php?q="+str,true);
+          xmlhttp.send();
+      }
+  }
+
+  function testFunc() {
+      showUser(($(document.getElementById('patientsearchinput')).val()));
+  }
+</script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -98,33 +125,11 @@
                       <div class="input-group margin">
                         <input type="text" class="form-control" placeholder="client name" id="patientsearchinput">
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-info btn-flat" id="patientsearchbtn" onclick"">Go!</button>
+                              <button type="button" class="btn btn-info btn-flat" id="patientsearchbtn" onclick="showUser(($(document.getElementById('patientsearchinput')).val()))">Go!</button>
                             </span>
                       </div>
-                      <script>
-                      $(document).ready(function(){
-                          $('#patientsearchbtn').click(function(){
-                              // alert(document.getElementById('patientsearchinput').value);
-                              //alert($(document.getElementById('patientsearchinput')).val());
-                              var clickBtnValue = ($(document.getElementById('patientsearchinput')).val());
-                              var ajaxurl = 'staffportal_clientlookup.php',
-                              data =  {'action': clickBtnValue};
-                              $.post(ajaxurl, data, function (response) {
-                                  // Response div goes here.
-                                  alert("action performed successfully");
-                              });
+                      <div id="txtHint"><b>Person info will be listed here...</b></div>
 
-                              // var clickBtnValue = $(this).val();
-                              // var ajaxurl = 'ajax.php',
-                              // data =  {'action': clickBtnValue};
-                              // $.post(ajaxurl, data, function (response) {
-                              //     // Response div goes here.
-                              //     alert("action performed successfully");
-                              // });
-                          });
-
-                      });
-                      </script>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2-2">
