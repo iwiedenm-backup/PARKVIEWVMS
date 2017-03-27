@@ -20,7 +20,7 @@ th {text-align: left;}
 <?php
 $q = strval($_GET['q']);
 
-$con = mysqli_connect('localhost','root','rooter','AnimalHospitalDatabase');
+$con = mysqli_connect('localhost','root','root','AnimalHospitalDatabase');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
