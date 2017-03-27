@@ -20,11 +20,33 @@
 
   <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
   <script>
-  function showUser(str) {
+  function showPatient(str) {
       if (str == "") {
-          document.getElementById("txtHint").innerHTML = "";
+          document.getElementById("patientHint").innerHTML = "";
           return;
-      } else { 
+      } else {
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+          };
+          xmlhttp.open("GET","patient_lookup.php?q="+str,true);
+          xmlhttp.send();
+      }
+  }
+
+  function showClient(str) {
+      if (str == "") {
+          document.getElementById("clientHint").innerHTML = "";
+          return;
+      } else {
           if (window.XMLHttpRequest) {
               // code for IE7+, Firefox, Chrome, Opera, Safari
               xmlhttp = new XMLHttpRequest();
@@ -41,10 +63,6 @@
           xmlhttp.send();
       }
   }
-
-  function testFunc() {
-      showUser(($(document.getElementById('patientsearchinput')).val()));
-  }
 </script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -57,7 +75,7 @@
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-blue layout-top-nav layout-boxed">
 <div class="wrapper">
-
+<img class="" src="http://web5.lifelearn.com/parkviewph/files/2016/02/logo-for-header.png" alt="Photo">
   <header class="main-header">
     <nav class="navbar navbar-static-top">
       <div class="container">
@@ -94,11 +112,11 @@
           <!-- Top Navigation
           <small>Example 2.0</small> -->
         </h1>
-        <ol class="breadcrumb">
+        <!-- <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#">Layout</a></li>
           <li class="active">Top Navigation</li>
-        </ol>
+        </ol> -->
       </section>
 
       <!-- Main content -->
@@ -123,23 +141,27 @@
                     <div class="tab-pane active" id="tab_1-1">
                       Search for a patient
                       <div class="input-group margin">
-                        <input type="text" class="form-control" placeholder="client name" id="patientsearchinput">
+                        <input type="text" class="form-control" placeholder="patient name" id="patientsearchinput">
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-info btn-flat" id="patientsearchbtn" onclick="showUser(($(document.getElementById('patientsearchinput')).val()))">Go!</button>
+                              <button type="button" class="btn btn-info btn-flat" id="patientsearchbtn" onclick="showPatient(($(document.getElementById('patientsearchinput')).val()))">Go!</button>
                             </span>
                       </div>
-                      <div id="txtHint"><b>Person info will be listed here...</b></div>
+                      <div id="patientHint"><b>Person info will be listed here...</b></div>
 
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2-2">
-                      Search for a client
+                      Search for a patient
                       <div class="input-group margin">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" placeholder="patient name" id="patientsearchinput">
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-info btn-flat" onclick="alert('jigger')">Go!</button>
+                              <button type="button" class="btn btn-info btn-flat" id="patientsearchbtn" onclick="showPatient(($(document.getElementById('patientsearchinput')).val()))">Go!</button>
                             </span>
                       </div>
+                      <div id="clientHint"><b>Person info will be listed here...</b></div>
+
+                    </div>
+                    <!-- /.tab-pane -->
 
                       <script>
                       function clientLookup() {
