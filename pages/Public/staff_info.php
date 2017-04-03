@@ -39,7 +39,7 @@ echo
       <h3 class='widget-user-username'>";
 
 //@NAME
-echo $row['Employee_Name'] ;
+echo $row['Employee_name'] ;
 
 
 echo
@@ -47,7 +47,7 @@ echo
       <h5 class='widget-user-desc'>";
 
 //@JOB
-echo $row['Employee_Type'] ;
+echo $row['Employee_type'] ;
 
 echo
       "</h5>
@@ -56,7 +56,7 @@ echo
       <img class='img-circle' src='";
 
 //imageURL
-echo $row['Employee_Image'] ;
+echo $row['Employee_imageURL'] ;
 
 echo
 "' alt='User Avatar'>
@@ -69,9 +69,9 @@ echo
             <span class='description-text'>";
 
 //location
-echo $row['Employee_City'] ;
+echo $row['Employee_city'] ;
 echo ", ";
-echo $row['Employee_State'] ;
+echo $row['Employee_state'] ;
 
 echo
             "</span>
@@ -83,7 +83,7 @@ echo
             <span class='description-text'>";
 
 //description
-echo $row['Employee_Description'] ;
+echo $row['Employee_description'] ;
 
 echo
             "</span>
