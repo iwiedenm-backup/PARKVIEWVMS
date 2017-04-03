@@ -12,7 +12,6 @@ document.getElementById("navMenu").innerHTML =
   '</li>'+
   '<li><a href="o_staff.html">Staff</a></li>'+
   '<li><a href="o_events.html">News & Events</a></li>'+
-  '<li><a href="o_clientportal_login.html">Client Portal</a></li>'+
   '<li><a href="o_staffportal_login.html">Staff Portal</a></li>'+
 '</ul>'
 ;
