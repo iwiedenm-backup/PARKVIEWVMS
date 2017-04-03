@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../dist/css/custom.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
@@ -34,7 +35,7 @@
           }
           xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("txtHint").innerHTML = this.responseText;
+                  document.getElementById("patientHint").innerHTML = this.responseText;
               }
           };
           xmlhttp.open("GET","patient_lookup.php?q="+str,true);
@@ -56,7 +57,7 @@
           }
           xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("txtHint").innerHTML = this.responseText;
+                  document.getElementById("clientHint").innerHTML = this.responseText;
               }
           };
           xmlhttp.open("GET","client_lookup.php?q="+str,true);
@@ -147,15 +148,175 @@
                             </span>
                       </div>
                       <div id="patientHint"><b>Person info will be listed here...</b></div>
+                      <div class="body table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>OWNER NAME</th>
+                                        <th>OWNER DOB</th>
+                                        <th>OWNER CITY</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>1/3/4</td>
+                                        <td>LA</td>
+                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>PET NAME</th>
+                                            <th>PET DOB</th>
+                                            <th>PET BREED</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Alba</td>
+                                        <td>5/3/1</td>
+                                        <td>Cat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Alba</td>
+                                        <td>5/3/1</td>
+                                        <td>Cat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>James</td>
+                                        <td>1/3/4</td>
+                                        <td>NY</td>
+                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>PET NAME</th>
+                                            <th>PET DOB</th>
+                                            <th>PET BREED</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Alba</td>
+                                        <td>5/3/1</td>
+                                        <td>Cat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Alba</td>
+                                        <td>5/3/1</td>
+                                        <td>Cat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Larry</td>
+                                        <td>Jellybean</td>
+                                        <td>@lajelly</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Larry</td>
+                                        <td>Kikat</td>
+                                        <td>@lakitkat</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="body table-responsive">
+                              <table class="table table-portal">
+                                  <thead>
+                                      <tr>
+                                          <th>#</th>
+                                          <th>OWNER NAME</th>
+                                          <th>OWNER DOB</th>
+                                          <th>OWNER CITY</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <th scope="row">1</th>
+                                          <td>Mark</td>
+                                          <td>1/3/4</td>
+                                          <td>LA</td>
+                                      </tr>
+                                      <thead>
+                                          <tr>
+                                              <th></th>
+                                              <th>PET NAME</th>
+                                              <th>PET DOB</th>
+                                              <th>PET BREED</th>
+                                          </tr>
+                                      </thead>
+                                      <tr>
+                                          <th scope="row"></th>
+                                          <td>Alba</td>
+                                          <td>5/3/1</td>
+                                          <td>Cat</td>
+                                      </tr>
+                                      <tr>
+                                          <th scope="row"></th>
+                                          <td>Alba</td>
+                                          <td>5/3/1</td>
+                                          <td>Cat</td>
+                                      </tr>
+                                      <tr>
+                                          <th scope="row">2</th>
+                                          <td>James</td>
+                                          <td>1/3/4</td>
+                                          <td>NY</td>
+                                      </tr>
+                                      <thead>
+                                          <tr>
+                                              <th></th>
+                                              <th>PET NAME</th>
+                                              <th>PET DOB</th>
+                                              <th>PET BREED</th>
+                                          </tr>
+                                      </thead>
+                                      <tr>
+                                          <th scope="row"></th>
+                                          <td>Alba</td>
+                                          <td>5/3/1</td>
+                                          <td>Cat</td>
+                                      </tr>
+                                      <tr>
+                                          <th scope="row"></th>
+                                          <td>Alba</td>
+                                          <td>5/3/1</td>
+                                          <td>Cat</td>
+                                      </tr>
+                                      <tr>
+                                          <th scope="row">4</th>
+                                          <td>Larry</td>
+                                          <td>Jellybean</td>
+                                          <td>@lajelly</td>
+                                      </tr>
+                                      <tr>
+                                          <th scope="row">5</th>
+                                          <td>Larry</td>
+                                          <td>Kikat</td>
+                                          <td>@lakitkat</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                    </div>
+                </div>
+            </div>
 
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2-2">
-                      Search for a patient
+                      Search for a client
                       <div class="input-group margin">
-                        <input type="text" class="form-control" placeholder="patient name" id="patientsearchinput">
+                        <input type="text" class="form-control" placeholder="client name" id="clientsearchinput">
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-info btn-flat" id="patientsearchbtn" onclick="showPatient(($(document.getElementById('patientsearchinput')).val()))">Go!</button>
+                              <button type="button" class="btn btn-info btn-flat" id="clientsearchbtn" onclick="showClient(($(document.getElementById('clientsearchinput')).val()))">Go!</button>
                             </span>
                       </div>
                       <div id="clientHint"><b>Person info will be listed here...</b></div>
@@ -163,11 +324,11 @@
                     </div>
                     <!-- /.tab-pane -->
 
-                      <script>
+                      <!-- <script>
                       function clientLookup() {
                           alert('client lookup clicked');
                       }
-                      </script>
+                      </script> -->
 
                     </div>
                     <!-- /.tab-pane -->

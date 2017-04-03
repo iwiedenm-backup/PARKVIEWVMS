@@ -18,12 +18,46 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 
+  <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+  <script type="text/javascript">
+  $( document ).ready(function() {
+      fillData();
+  });
+  </script>
+
+  <script>
+
+  function fillData() {
+      if (str == "") {
+          document.getElementById("personInfo").innerHTML = "";
+          return;
+      } else {
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("personInfo").innerHTML = this.responseText;
+              }
+          };
+          xmlhttp.open("GET","staff_info.php",true);
+          xmlhttp.send();
+      }
+  }
+
+</script>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-blue layout-top-nav layout-boxed">
@@ -61,7 +95,7 @@
     <div class="container">
       <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1> Staff Portal
+        <h1> Staff Information
         </h1>
         <!-- <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -80,13 +114,13 @@
           <div class="box-body">
 
             <div class="row">
-              <div class="col-md-4">
+              <!-- <div class="col-md-4">
                 <!-- Widget: user widget style 1 -->
                 <div class="box box-widget widget-user">
                   <!-- Add the bg color to the header using any of the bg-* classes -->
-                  <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
+                  <div class="widget-user-header bg-aqua-gradient" style="background: url('../dist/img/photo1.png') center center;">
                     <h3 class="widget-user-username">Test Employee 1</h3>
-                    <h5 class="widget-user-desc">Web Designer</h5>
+                    <h5 class="widget-user-desc">Veterinarian</h5>
                   </div>
                   <div class="widget-user-image">
                     <img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
@@ -95,123 +129,31 @@
                     <div class="row">
                       <div class="col-sm-4 border-right">
                         <div class="description-block">
-                          <h5 class="description-header">3,200</h5>
-                          <span class="description-text">SALES</span>
+                          <h5 class="description-header">From</h5>
+                          <span class="description-text">California</span>
                         </div>
                         <!-- /.description-block -->
                       </div>
                       <!-- /.col -->
-                      <div class="col-sm-4 border-right">
+                      <div class="col-sm-8 border-right">
                         <div class="description-block">
-                          <h5 class="description-header">13,000</h5>
-                          <span class="description-text">FOLLOWERS</span>
+                          <h5 class="description-header">About</h5>
+                          <span class="description-text">sdbajshdgajs  akjshgd a sjhd ajhsdak jshdkjahsd asjdgajshgd kjashgd asd </span>
                         </div>
                         <!-- /.description-block -->
                       </div>
                       <!-- /.col -->
-                      <div class="col-sm-4">
-                        <div class="description-block">
-                          <h5 class="description-header">35</h5>
-                          <span class="description-text">PRODUCTS</span>
-                        </div>
-                        <!-- /.description-block -->
-                      </div>
+
                       <!-- /.col -->
                     </div>
                     <!-- /.row -->
                   </div>
                 </div>
                 <!-- /.widget-user -->
-              </div>
+              </div> -->
+              <div id="personInfo"><b>Person info will be listed here...</b></div>
               <!-- /.col -->
-              <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="box box-widget widget-user">
-                  <!-- Add the bg color to the header using any of the bg-* classes -->
-                  <div class="widget-user-header bg-aqua-active">
-                    <h3 class="widget-user-username">Test Employee 2</h3>
-                    <h5 class="widget-user-desc">Founder &amp; CEO</h5>
-                  </div>
-                  <div class="widget-user-image">
-                    <img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
-                  </div>
-                  <div class="box-footer">
-                    <div class="row">
-                      <div class="col-sm-4 border-right">
-                        <div class="description-block">
-                          <h5 class="description-header">3,200</h5>
-                          <span class="description-text">SALES</span>
-                        </div>
-                        <!-- /.description-block -->
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-4 border-right">
-                        <div class="description-block">
-                          <h5 class="description-header">13,000</h5>
-                          <span class="description-text">FOLLOWERS</span>
-                        </div>
-                        <!-- /.description-block -->
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-4">
-                        <div class="description-block">
-                          <h5 class="description-header">35</h5>
-                          <span class="description-text">PRODUCTS</span>
-                        </div>
-                        <!-- /.description-block -->
-                      </div>
-                      <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                  </div>
-                </div>
-                <!-- /.widget-user -->
-              </div>
-              <!-- /.col -->
-              <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="box box-widget widget-user">
-                  <!-- Add the bg color to the header using any of the bg-* classes -->
-                  <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
-                    <h3 class="widget-user-username">Test Employee 3</h3>
-                    <h5 class="widget-user-desc">Web Designer</h5>
-                  </div>
-                  <div class="widget-user-image">
-                    <img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
-                  </div>
-                  <div class="box-footer">
-                    <div class="row">
-                      <div class="col-sm-4 border-right">
-                        <div class="description-block">
-                          <h5 class="description-header">3,200</h5>
-                          <span class="description-text">SALES</span>
-                        </div>
-                        <!-- /.description-block -->
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-4 border-right">
-                        <div class="description-block">
-                          <h5 class="description-header">13,000</h5>
-                          <span class="description-text">FOLLOWERS</span>
-                        </div>
-                        <!-- /.description-block -->
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-4">
-                        <div class="description-block">
-                          <h5 class="description-header">35</h5>
-                          <span class="description-text">PRODUCTS</span>
-                        </div>
-                        <!-- /.description-block -->
-                      </div>
-                      <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                  </div>
-                </div>
-                <!-- /.widget-user -->
-              </div>
-              <!-- /.col -->
+
             </div>
             <!-- /.row -->
 
@@ -255,10 +197,14 @@
 <!--@ NAVBAR-->
 <script src="../../dist/js/nav.js"></script>
 <!-- <script src="../../dist/js/navProfile.js"></script> -->
+
+
+
 <script type="text/javascript">
    //$(document).ready(function(){
        $('#navProfile').load('../../dist/js/navProfile.html');
    //});
+
 </script>
 </body>
 </html>
